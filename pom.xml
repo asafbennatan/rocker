@@ -3,7 +3,8 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>rocker</artifactId>
     <packaging>pom</packaging>
-    <version>1.4.1-SNAPSHOT</version>
+    <version>1.4.1</version>
+    <groupId>com.wizzdi</groupId>
 
     <parent>
         <groupId>com.fizzed</groupId>
@@ -16,7 +17,28 @@
         <connection>scm:git:git@github.com:fizzed/rocker.git</connection>
       <tag>HEAD</tag>
   </scm>
-    
+
+    <distributionManagement>
+        <snapshotRepository>
+
+            <id>wizzdi-cloud-local</id>
+            <name>wizzdi-cloud-local</name>
+            <url>https://artifactory.wizzdi.com/artifactory/wizzdi-cloud-local</url>
+        </snapshotRepository>
+        <repository>
+            <id>wizzdi-cloud-local</id>
+            <name>wizzdi-cloud-local</name>
+            <url>https://artifactory.wizzdi.com/artifactory/wizzdi-cloud-local</url>
+        </repository>
+    </distributionManagement>
+    <repositories>
+        <repository>
+            <id>wizzdi-cloud-local</id>
+            <name>wizzdi-cloud-local</name>
+            <url>https://artifactory.wizzdi.com/artifactory/wizzdi-cloud-local</url>
+        </repository>
+    </repositories>
+
     <properties>
         <main.java.package />
         <slf4j.version>1.7.7</slf4j.version>
@@ -41,6 +63,14 @@
     
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <repositoryId>wizzdi-cloud-local</repositoryId>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -71,19 +101,19 @@
             <!-- compile -->
             
             <dependency>
-                <groupId>com.fizzed</groupId>
+                <groupId>com.wizzdi</groupId>
                 <artifactId>rocker-runtime</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>com.fizzed</groupId>
+                <groupId>com.wizzdi</groupId>
                 <artifactId>rocker-compiler</artifactId>
                 <version>${project.version}</version>
             </dependency>
             
             <dependency>
-                <groupId>com.fizzed</groupId>
+                <groupId>com.wizzdi</groupId>
                 <artifactId>rocker-maven-plugin</artifactId>
                 <version>${project.version}</version>
             </dependency>

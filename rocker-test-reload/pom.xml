@@ -6,9 +6,9 @@
     <packaging>jar</packaging>
 
     <parent>
-        <groupId>com.fizzed</groupId>
+        <groupId>com.wizzdi</groupId>
         <artifactId>rocker</artifactId>
-        <version>1.4.1-SNAPSHOT</version>
+        <version>1.4.1</version>
     </parent>
 
     <properties>
@@ -24,7 +24,7 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>com.fizzed</groupId>
+                <groupId>com.wizzdi</groupId>
                 <artifactId>rocker-maven-plugin</artifactId>
                 <version>${project.version}</version>
                 <executions>
@@ -84,12 +84,12 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.fizzed</groupId>
+            <groupId>com.wizzdi</groupId>
             <artifactId>rocker-runtime</artifactId>
         </dependency>
         
         <dependency>
-            <groupId>com.fizzed</groupId>
+            <groupId>com.wizzdi</groupId>
             <artifactId>rocker-compiler</artifactId>
             <scope>provided</scope>
         </dependency>
